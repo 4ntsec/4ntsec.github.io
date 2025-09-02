@@ -1,0 +1,4 @@
+baseURL = 'https://4ntsec.github.io/'
+languageCode = 'en-us'
+title = '4ntsec Blog'
+theme = 'poison'
