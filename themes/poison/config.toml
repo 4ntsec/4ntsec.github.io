@@ -9,8 +9,8 @@ pluralizelisttitles = false   # removes the automatically appended "s" on sideba
 
 [params]
     brand = "Antsec"                      # name of your site - appears in the sidebar
-    remote_brand_image = 'https://static.vecteezy.com/system/resources/previews/025/463/773/non_2x/hacker-logo-design-a-mysterious-and-dangerous-hacker-illustration-vector.jpg' # path to a remote file
-    #brand_image = "/images/pixel.png"    # path to the image shown in the sidebar
+    #remote_brand_image = 'https://static.vecteezy.com/system/resources/previews/025/463/773/non_2x/hacker-logo-design-a-mysterious-and-dangerous-hacker-illustration-vector.jpg' # path to a remote file
+    brand_image = "/images/pixel.png"    # path to the image shown in the sidebar
     description = "Just a site for my reference" # Used as default meta description if not specified in front matter
     dark_mode = true                      # optional - defaults to false
     # favicon = "favicon.png"             # path to favicon (defaults to favicon.png)
@@ -25,7 +25,7 @@ pluralizelisttitles = false   # removes the automatically appended "s" on sideba
         # Limit:        If the files should be listed, how many should be shown.
     menu = [
         {Name = "About", URL = "/about/"},
-        {Name = "Posts", URL = "/posts/", Pre = "Recent", HasChildren = true, Limit = 5},
+        {Name = "Posts", URL = "/posts/", HasChildren = true, Limit = 5},
     ]
 
     # Links to your socials.  Comment or delete any you don't need/use. 

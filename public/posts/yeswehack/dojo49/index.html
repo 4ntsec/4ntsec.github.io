@@ -68,14 +68,14 @@
 
 
 
-<base href="http://localhost:1313/posts/github/" />
-<link rel="canonical" href="http://localhost:1313/posts/github/" itemprop="url" />
-<meta name="url" content="http://localhost:1313/posts/github/" />
-<meta name="twitter:url" content="http://localhost:1313/posts/github/" />
-<meta property="og:url" content="http://localhost:1313/posts/github/" />
+<base href="http://localhost:1313/posts/yeswehack/dojo49/" />
+<link rel="canonical" href="http://localhost:1313/posts/yeswehack/dojo49/" itemprop="url" />
+<meta name="url" content="http://localhost:1313/posts/yeswehack/dojo49/" />
+<meta name="twitter:url" content="http://localhost:1313/posts/yeswehack/dojo49/" />
+<meta property="og:url" content="http://localhost:1313/posts/yeswehack/dojo49/" />
 
 
-<meta property="og:updated_time" content="2026-04-01T11:56:37&#43;05:30" />
+<meta property="og:updated_time" content="2026-04-01T00:00:00Z" />
 
 
 <link rel="sitemap" type="application/xml" title="Sitemap" href='http://localhost:1313/sitemap.xml' />
@@ -100,8 +100,8 @@
 
   <meta property="og:type" content="article" />
   <meta property="article:publisher" content="" />
-  <meta property="og:article:published_time" content="2026-04-01T11:56:37&#43;05:30" />
-  <meta property="article:published_time" content="2026-04-01T11:56:37&#43;05:30" />
+  <meta property="og:article:published_time" content="2026-04-01T00:00:00Z" />
+  <meta property="article:published_time" content="2026-04-01T00:00:00Z" />
 
   
 
@@ -115,7 +115,7 @@
     
     
 
-<link type="text/css" rel="stylesheet" href="/css/bundle.min.5f40cebd26a25cdda4863ef58f18022d84fa942e40801de7e752ecf06959820d.css">
+<link type="text/css" rel="stylesheet" href="/css/bundle.min.4aad5d8856f3db6743b3c06aee1b993e8fb7aea1e7215a93c08ba00bd9166b5d.css">
 
 
     
@@ -182,7 +182,7 @@
     <h1 class="brand">
         
             <a href="http://localhost:1313/">
-                <img src="https://static.vecteezy.com/system/resources/previews/025/463/773/non_2x/hacker-logo-design-a-mysterious-and-dangerous-hacker-illustration-vector.jpg" alt="brand image">
+                <img src="/images/pixel.png" alt="brand image">
             </a>
         
         
@@ -239,11 +239,11 @@
                     </li>
                     
                         <li class="sub-heading">
-                            Recent
+                            
                         </li>
                         
                             <li class="bullet">
-                                <a href="http://localhost:1313/posts/github/">Dojo 49</a>
+                                <a href="http://localhost:1313/posts/yeswehack/dojo49/">Dojo 49</a>
                             </li>
                         
                     
@@ -307,14 +307,14 @@ powered by <a target="_blank" href="https://gohugo.io">Hugo</a> | themed with <a
                 <div class="post">
   <div class="info">
   <h1 class="post-title">
-    <a href="http://localhost:1313/posts/github/">Dojo 49</a>
+    <a href="http://localhost:1313/posts/yeswehack/dojo49/">Dojo 49</a>
   </h1>
 
   <div class="headline">
     <div>
       
       
-      <time datetime=" 2026-04-01T11:56:37&#43;0530" class="post-date">
+      <time datetime=" 2026-04-01T00:00:00Z" class="post-date">
         April 1, 2026
       </time>
       
@@ -428,7 +428,7 @@ powered by <a target="_blank" href="https://gohugo.io">Hugo</a> | themed with <a
 </code></pre><h1 id="exploitation">Exploitation</h1>
 <p>From the code analysis I found that the implementation of the <code>cp</code> and <code>grep</code> command with wildcard is insecure where users can create a file which looks like an argument such as <code>-r</code> and <code>--parents</code> etc.. This allowed me do a recursive copy by creating a filenamed <code>-r</code>.</p>
 <p>Initially the <code>cp</code> command copy all files using <code>*</code> but as the <code>internal_secrets</code> is a directory copy command will omit the directories and copy only the files to <code>/tmp/uploads/vaults</code> but due that found argument injection via file creation we can make the command to do recursive copy.
-{YWH-R890661}</p>
+<img src="d491.png" alt="image1"></p>
 <p>We got the way to copy the <code>flag.txt</code>. But how we are going to read it. We can use <code>viewFile</code> to read the flag but this action checks whether the filename contain the string <code>internal_secrets</code> if so the <code>viewFile</code> will directly produce <code>Access denied</code> error.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#e6db74">&#39;internal_secrets&#39;</span> <span style="color:#f92672">in</span> filename:
 </span></span><span style="display:flex;"><span>                                results<span style="color:#f92672">.</span>append(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;ERR: Access denied to &#39;</span><span style="color:#e6db74">{</span>filename<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;&#34;</span>)
@@ -442,7 +442,7 @@ powered by <a target="_blank" href="https://gohugo.io">Hugo</a> | themed with <a
 Filenames = -r vaults/--
 Content = 
 Search_Term = .
-</code></pre><p>{YWH-R890664}</p>
+</code></pre><p><img src="d492.png" alt="image2"></p>
 <pre tabindex="0"><code>Flag = FLAG{A1m_F0r_Th3_St4r!}
 </code></pre>
   
